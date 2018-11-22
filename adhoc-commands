@@ -1,0 +1,107 @@
+sudo ifconfig wlan0 down
+sudo iwconfig wlan0 mode ad-hoc
+sudo iwconfig wlan0 channel 1 essid MYNETWORK mode ad-hoc
+sudo ifconfig wlan0 up
+sudo ifconfig wlan0 192.168.1.2 netmask 255.255.255.0
+
+sudo ifconfig -a // to check wlan is present or not
+-- run above commands
+
+ping ipaddress
+
+ssh comp-name@ipaddress
+
+*********************************
+//my script -- 
+
+sudo ifconfig wlo1 down
+sudo iwconfig wlo1 mode ad-hoc
+sudo iwconfig wlo1 channel 1 essid SK mode ad-hoc
+sudo ifconfig wlo1 up
+sudo ifconfig wlo1 192.168.1.213 netmask 255.255.255.0
+
+******************************************
+
+
+-------------------------------------------
+
+sudo ifconfig -a
+eno1: flags=4099<UP,BROADCAST,MULTICAST>  mtu 1500
+        ether 38:ea:a7:f5:73:8b  txqueuelen 1000  (Ethernet)
+        RX packets 0  bytes 0 (0.0 B)
+        RX errors 0  dropped 0  overruns 0  frame 0
+        TX packets 0  bytes 0 (0.0 B)
+        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
+
+lo: flags=73<UP,LOOPBACK,RUNNING>  mtu 65536
+        inet 127.0.0.1  netmask 255.0.0.0
+        inet6 ::1  prefixlen 128  scopeid 0x10<host>
+        loop  txqueuelen 1000  (Local Loopback)
+        RX packets 2764  bytes 243157 (243.1 KB)
+        RX errors 0  dropped 0  overruns 0  frame 0
+        TX packets 2764  bytes 243157 (243.1 KB)
+        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
+
+wlo1: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 1500
+        inet 192.168.43.124  netmask 255.255.255.0  broadcast 192.168.43.255
+        inet6 2402:8100:300b:3508:c578:892f:cda7:43cc  prefixlen 64  scopeid 0x0<global>
+        inet6 2402:8100:300b:3508:f8db:8ae1:4f59:ee85  prefixlen 64  scopeid 0x0<global>
+        inet6 fe80::b058:d845:45a6:748  prefixlen 64  scopeid 0x20<link>
+        ether 20:16:d8:ca:01:ed  txqueuelen 1000  (Ethernet)
+        RX packets 225026  bytes 277442417 (277.4 MB)
+        RX errors 0  dropped 0  overruns 0  frame 0
+        TX packets 194622  bytes 25038360 (25.0 MB)
+        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
+
+pratiksha@PP-HP-Pavilion-Sleekbook-14:~/MSc/sem3/CN$ sudo ifconfig wlan0 down
+wlan0: ERROR while getting interface flags: No such device
+pratiksha@PP-HP-Pavilion-Sleekbook-14:~/MSc/sem3/CN$ sudo ifconfig wlo1 down
+pratiksha@PP-HP-Pavilion-Sleekbook-14:~/MSc/sem3/CN$ sudo iwconfig wlo1 mode ad-hoc
+pratiksha@PP-HP-Pavilion-Sleekbook-14:~/MSc/sem3/CN$ sudo iwconfig wlo1 channel 1 essid MYNETWORK mode ad-hoc
+pratiksha@PP-HP-Pavilion-Sleekbook-14:~/MSc/sem3/CN$ sudo iwconfig wlo1 up
+iwconfig: unknown command "up"
+pratiksha@PP-HP-Pavilion-Sleekbook-14:~/MSc/sem3/CN$ sudo ifconfig wlo1 up
+pratiksha@PP-HP-Pavilion-Sleekbook-14:~/MSc/sem3/CN$ sudo ifconfig wlo1 192.168.1.2 netmask 255.255.255.0
+
+pratiksha@PP-HP-Pavilion-Sleekbook-14:~/MSc/sem3/CN$ ifconfig
+eno1: flags=4099<UP,BROADCAST,MULTICAST>  mtu 1500
+        ether 38:ea:a7:f5:73:8b  txqueuelen 1000  (Ethernet)
+        RX packets 0  bytes 0 (0.0 B)
+        RX errors 0  dropped 0  overruns 0  frame 0
+        TX packets 0  bytes 0 (0.0 B)
+        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
+
+lo: flags=73<UP,LOOPBACK,RUNNING>  mtu 65536
+        inet 127.0.0.1  netmask 255.0.0.0
+        inet6 ::1  prefixlen 128  scopeid 0x10<host>
+        loop  txqueuelen 1000  (Local Loopback)
+        RX packets 3842  bytes 317733 (317.7 KB)
+        RX errors 0  dropped 0  overruns 0  frame 0
+        TX packets 3842  bytes 317733 (317.7 KB)
+        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
+
+wlo1: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 1500
+        inet 192.168.1.2  netmask 255.255.255.0  broadcast 192.168.1.255
+        inet6 2402:8100:300b:3508:c578:892f:cda7:43cc  prefixlen 64  scopeid 0x0<global>
+        inet6 2402:8100:300b:3508:f8db:8ae1:4f59:ee85  prefixlen 64  scopeid 0x0<global>
+        inet6 fe80::b058:d845:45a6:748  prefixlen 64  scopeid 0x20<link>
+        ether 20:16:d8:ca:01:ed  txqueuelen 1000  (Ethernet)
+        RX packets 225460  bytes 277555686 (277.5 MB)
+        RX errors 0  dropped 0  overruns 0  frame 0
+        TX packets 195173  bytes 25146522 (25.1 MB)
+        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
+
+pratiksha@PP-HP-Pavilion-Sleekbook-14:~/MSc/sem3/CN$ ping 192.168.1.255
+Do you want to ping broadcast? Then -b. If not, check your local firewall rules.
+pratiksha@PP-HP-Pavilion-Sleekbook-14:~/MSc/sem3/CN$ ping 192.168.1.2
+PING 192.168.1.2 (192.168.1.2) 56(84) bytes of data.
+64 bytes from 192.168.1.2: icmp_seq=1 ttl=64 time=0.074 ms
+64 bytes from 192.168.1.2: icmp_seq=2 ttl=64 time=0.074 ms
+64 bytes from 192.168.1.2: icmp_seq=3 ttl=64 time=0.077 ms
+64 bytes from 192.168.1.2: icmp_seq=4 ttl=64 time=0.072 ms
+64 bytes from 192.168.1.2: icmp_seq=5 ttl=64 time=0.079 ms
+^C
+--- 192.168.1.2 ping statistics ---
+5 packets transmitted, 5 received, 0% packet loss, time 4100ms
+rtt min/avg/max/mdev = 0.072/0.075/0.079/0.006 ms
+
